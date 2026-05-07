@@ -761,14 +761,14 @@ function CovoituragePage() {
   let contactText = `🚗 Voiture ${driver.prenom} ${driver.nom}\n${driver.lieuDepart} → ${driver.lieuArrivee}\n\n`;
 
   if (type === 'instagram') {
-    contactText += allMembers.map((m: any) => m.instagram || '').filter(Boolean).join('\n');
-  } else if (type === 'telephone') {
-    contactText += allMembers.map((m: any) => `${m.prenom} ${m.nom}: ${m.telephone || 'Non renseigné'}`).join('\n');
-  } else {
-    contactText += allMembers.map((m: any, idx: number) =>
-      `${idx === 0 ? '👤 Conducteur' : `👥 Passager ${idx}`}: ${m.prenom} ${m.nom}\n📷 ${m.instagram || '-'} · 📱 ${m.telephone || '-'}`
-    ).join('\n\n');
-  }
+  contactText = allMembers.map((m: any) => m.instagram || '').filter(Boolean).join('\n');
+} else if (type === 'telephone') {
+  contactText = allMembers.map((m: any) => m.telephone || '').filter(Boolean).join('\n');
+} else {
+  contactText = allMembers.map((m: any) =>
+    `${m.instagram || ''} ${m.telephone || ''}`
+  ).join('\n');
+}
 
   navigator.clipboard.writeText(contactText).then(() => {
     setCopiedId(driver.id);

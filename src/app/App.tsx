@@ -1303,7 +1303,7 @@ function CovoituragePage() {
                         </div>
                       )}
                       <div className="mt-6 pt-4 border-t border-[#1A3A4A]">
-                        <button onClick={(e) => { e.stopPropagation(); if (window.confirm(`Êtes-vous sûr de vouloir supprimer ce trajet ? ${driver.passagers.length > 0 ? `Les ${driver.passagers.length} passager(s) seront libéré(s).` : ''}`)) { removeDriver(driver.id); } }} className="w-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 hover:border-red-500 text-red-400 hover:text-red-300 px-4 py-3 rounded transition-all text-sm font-medium">🗑️ Supprimer ce trajet</button>
+                        <button onClick={(e) => { e.stopPropagation(); if (window.confirm('Êtes-vous sûr de vouloir supprimer ce trajet ? ' + (driver.passagers.length > 0 ? 'Les ' + driver.passagers.length + ' passager(s) seront libéré(s).' : ''))) { removeDriver(driver.id); } }} className="w-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 hover:border-red-500 text-red-400 hover:text-red-300 px-4 py-3 rounded transition-all text-sm font-medium">🗑️ Supprimer ce trajet</button>
                       </div>
                       {hasPlaces && availablePassengers.length > 0 && (
                         <div className="mt-4 pt-4 border-t border-[#1A3A4A]">

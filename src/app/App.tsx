@@ -405,7 +405,7 @@ function CampingPage() {
         'Gourde réutilisable',
         'Tasse ou écocup',
         'Chargeur téléphone + batterie externe',
-        'tes culottes et ta brosse à dent... on ne va pas te faire la liste, t\'es grand maintenant'
+        'Tes culottes et ta brosse à dent... on ne va pas te faire la liste, t\'es grand maintenant'
       ]
     }
   ];
@@ -756,21 +756,25 @@ function CovoituragePage() {
     await loadCovoiturage();
   };
 
-  const copyCarContacts = (driver: any) => {
-    const allMembers = [driver, ...driver.passagers];
-    const contactText = `🚗 Voiture ${driver.prenom} ${driver.nom}\n${driver.lieuDepart} → ${driver.lieuArrivee}\n${driver.dateDepart} à ${driver.heureDepart}\n\n` +
-      allMembers.map((member: any, idx: number) =>
-        `${idx === 0 ? '👤 Conducteur' : `👥 Passager ${idx}`}:\n` +
-        `${member.prenom} ${member.nom}\n` +
-        `📷 Instagram: ${member.instagram || 'Non renseigné'}\n` +
-        `📱 Tél: ${member.telephone || 'Non renseigné'}`
-      ).join('\n\n');
+  const copyCarContacts = (driver: any, type: 'all' | 'instagram' | 'telephone') => {
+  const allMembers = [driver, ...driver.passagers];
+  let contactText = `🚗 Voiture ${driver.prenom} ${driver.nom}\n${driver.lieuDepart} → ${driver.lieuArrivee}\n\n`;
 
-    navigator.clipboard.writeText(contactText).then(() => {
-      setCopiedId(driver.id);
-      setTimeout(() => setCopiedId(null), 2000);
-    });
-  };
+  if (type === 'instagram') {
+    contactText += allMembers.map((m: any) => m.instagram || '').filter(Boolean).join('\n');
+  } else if (type === 'telephone') {
+    contactText += allMembers.map((m: any) => `${m.prenom} ${m.nom}: ${m.telephone || 'Non renseigné'}`).join('\n');
+  } else {
+    contactText += allMembers.map((m: any, idx: number) =>
+      `${idx === 0 ? '👤 Conducteur' : `👥 Passager ${idx}`}: ${m.prenom} ${m.nom}\n📷 ${m.instagram || '-'} · 📱 ${m.telephone || '-'}`
+    ).join('\n\n');
+  }
+
+  navigator.clipboard.writeText(contactText).then(() => {
+    setCopiedId(driver.id);
+    setTimeout(() => setCopiedId(null), 2000);
+  });
+};
 
   const toggleDriverExpansion = (driverId: number) => {
     setExpandedDrivers(prev => {
@@ -1258,19 +1262,26 @@ function CovoituragePage() {
                         <div className="mt-4 pt-4 border-t border-[#1A3A4A]">
                           <div className="flex items-center justify-between mb-3">
                             <div className="text-[10px] tracking-[2px] text-[#4A8898] font-medium uppercase">Passagers confirmés</div>
+                           <div className="flex gap-2 flex-wrap">
                             <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                copyCarContacts(driver);
-                              }}
-                              className="text-xs bg-[#F6CC45]/20 hover:bg-[#F6CC45]/30 text-[#F6CC45] px-3 py-1.5 rounded transition-colors flex items-center gap-2"
+                              onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'instagram'); }}
+                              className="text-xs bg-[#FF4D8F]/20 hover:bg-[#FF4D8F]/30 text-[#FF4D8F] px-3 py-1.5 rounded transition-colors"
                             >
-                              {copiedId === driver.id ? (
-                                <>✓ Copié !</>
-                              ) : (
-                                <>📋 Copier tous les contacts</>
-                              )}
+                              📷 Instagrams
                             </button>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'telephone'); }}
+                              className="text-xs bg-[#00C8D8]/20 hover:bg-[#00C8D8]/30 text-[#00C8D8] px-3 py-1.5 rounded transition-colors"
+                            >
+                              📱 Téléphones
+                            </button>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'all'); }}
+                              className="text-xs bg-[#F6CC45]/20 hover:bg-[#F6CC45]/30 text-[#F6CC45] px-3 py-1.5 rounded transition-colors"
+                            >
+                              {copiedId === driver.id ? '✓ Copié !' : '📋 Tout'}
+                            </button>
+                          </div>
                           </div>
 
                           <div className="space-y-2">

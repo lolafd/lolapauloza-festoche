@@ -631,7 +631,7 @@ function CovoituragePage() {
   const [drivers, setDrivers] = useState<any[]>([]);
   const [passengers, setPassengers] = useState<any[]>([]);
   const [selectedPassengerForJoin, setSelectedPassengerForJoin] = useState<number | null>(null);
-  const [copiedId, setCopiedId] = useState<{id: number, type: string} | null>(null);
+  const [copiedId, setCopiedId] = useState<number | null>(null);
   const [expandedDrivers, setExpandedDrivers] = useState<Set<number>>(new Set());
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -758,20 +758,20 @@ function CovoituragePage() {
 
   const copyCarContacts = (driver: any, type: 'all' | 'instagram' | 'telephone') => {
   const allMembers = [driver, ...driver.passagers];
-  let contactText = '';
+  let contactText = `🚗 Voiture ${driver.prenom} ${driver.nom}\n${driver.lieuDepart} → ${driver.lieuArrivee}\n\n`;
 
   if (type === 'instagram') {
-    contactText = allMembers.map((m: any) => m.instagram || '').filter(Boolean).join(' / ');
-  } else if (type === 'telephone') {
-    contactText = allMembers.map((m: any) => m.telephone || '').filter(Boolean).join(' / ');
-  } else {
-    contactText = allMembers.map((m: any) =>
-      (m.instagram || '') + ' ' + (m.telephone || '')
-    ).join('\n');
-  }
+  contactText = allMembers.map((m: any) => m.instagram || '').filter(Boolean).join(' / ');
+} else if (type === 'telephone') {
+  contactText = allMembers.map((m: any) => m.telephone || '').filter(Boolean).join(' / ');
+} else {
+  contactText = allMembers.map((m: any) =>
+    `${m.instagram || ''} ${m.telephone || ''}`
+  ).join('\n');
+}
 
   navigator.clipboard.writeText(contactText).then(() => {
-    setCopiedId({ id: driver.id, type });
+    setCopiedId(driver.id);
     setTimeout(() => setCopiedId(null), 2000);
   });
 };
@@ -1262,76 +1262,171 @@ function CovoituragePage() {
                         <div className="mt-4 pt-4 border-t border-[#1A3A4A]">
                           <div className="flex items-center justify-between mb-3">
                             <div className="text-[10px] tracking-[2px] text-[#4A8898] font-medium uppercase">Passagers confirmés</div>
-                            <div className="flex gap-2 flex-wrap">
-                              <button onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'instagram'); }} className="text-xs bg-[#00C8D8]/20 hover:bg-[#00C8D8]/30 text-[#00C8D8] px-3 py-1.5 rounded transition-colors">
-                                {copiedId?.id === driver.id && copiedId?.type === 'instagram' ? '✓ Copié !' : '📷 Instagrams'}
-                              </button>
-                              <button onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'telephone'); }} className="text-xs bg-[#00C8D8]/20 hover:bg-[#00C8D8]/30 text-[#00C8D8] px-3 py-1.5 rounded transition-colors">
-                                {copiedId?.id === driver.id && copiedId?.type === 'telephone' ? '✓ Copié !' : '📱 Téléphones'}
-                              </button>
-                              <button onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'all'); }} className="text-xs bg-[#00C8D8]/20 hover:bg-[#00C8D8]/30 text-[#00C8D8] px-3 py-1.5 rounded transition-colors">
-                                {copiedId?.id === driver.id && copiedId?.type === 'all' ? '✓ Copié !' : '📋 Tout'}
-                              </button>
-                            </div>
+                           <div className="flex gap-2 flex-wrap">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'instagram'); }}
+                              className="text-xs bg-[#FF4D8F]/20 hover:bg-[#FF4D8F]/30 text-[#FF4D8F] px-3 py-1.5 rounded transition-colors"
+                            >
+                              📷 Instagrams
+                            </button>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'telephone'); }}
+                              className="text-xs bg-[#00C8D8]/20 hover:bg-[#00C8D8]/30 text-[#00C8D8] px-3 py-1.5 rounded transition-colors"
+                            >
+                              📱 Téléphones
+                            </button>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'all'); }}
+                              className="text-xs bg-[#F6CC45]/20 hover:bg-[#F6CC45]/30 text-[#F6CC45] px-3 py-1.5 rounded transition-colors"
+                            >
+                              {copiedId === driver.id ? '✓ Copié !' : '📋 Tout'}
+                            </button>
                           </div>
+                          </div>
+
                           <div className="space-y-2">
                             {driver.passagers.map((p: any) => (
                               <div key={p.id} className="bg-[#FF4D8F]/10 border border-[#FF4D8F]/30 px-4 py-3 rounded-lg">
                                 <div className="flex flex-wrap items-center justify-between gap-3">
                                   <div className="flex-1">
-                                    <div className="text-sm text-[#E0F4F8] font-medium">{p.prenom} {p.nom}</div>
+                                    <div className="text-sm text-[#E0F4F8] font-medium">
+                                      {p.prenom} {p.nom}
+                                    </div>
                                     <div className="text-xs text-[#4A8898] mt-1 flex flex-wrap gap-3">
-                                      {p.instagram && (<a href={formatInstagramUrl(p.instagram)} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="hover:text-[#FF4D8F] transition-colors">📷 {p.instagram}</a>)}
+                                      {p.instagram && (
+                                        <a
+                                          href={formatInstagramUrl(p.instagram)}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          onClick={(e) => e.stopPropagation()}
+                                          className="hover:text-[#FF4D8F] transition-colors"
+                                        >
+                                          📷 {p.instagram}
+                                        </a>
+                                      )}
                                       {p.telephone && <span>📱 {p.telephone}</span>}
                                     </div>
                                   </div>
-                                  <button onClick={(e) => { e.stopPropagation(); removePassenger(driver.id, p.id); }} className="text-[#FF4D8F] hover:text-[#E0F4F8] hover:bg-[#FF4D8F]/20 w-8 h-8 rounded-full flex items-center justify-center transition-all text-lg font-bold" title="Retirer ce passager">×</button>
+                                  <button
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      removePassenger(driver.id, p.id);
+                                    }}
+                                    className="text-[#FF4D8F] hover:text-[#E0F4F8] hover:bg-[#FF4D8F]/20 w-8 h-8 rounded-full flex items-center justify-center transition-all text-lg font-bold"
+                                    title="Retirer ce passager"
+                                  >
+                                    ×
+                                  </button>
                                 </div>
                               </div>
                             ))}
                           </div>
+
+                          {/* Infos du conducteur */}
                           <div className="mt-3 bg-[#00C8D8]/10 border border-[#00C8D8]/30 px-4 py-3 rounded-lg">
-                            <div className="text-sm text-[#E0F4F8] font-medium">{driver.prenom} {driver.nom} <span className="text-xs text-[#00C8D8]">(Conducteur)</span></div>
-                            <div className="text-xs text-[#4A8898] mt-1 flex flex-wrap gap-3">
-                              {driver.instagram && (<a href={formatInstagramUrl(driver.instagram)} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="hover:text-[#00C8D8] transition-colors">📷 {driver.instagram}</a>)}
-                              {driver.telephone && <span>📱 {driver.telephone}</span>}
-                            </div>
-                          </div>
-                          <div className="mt-3 p-3 bg-[#1A3A4A]/30 border border-[#1A3A4A] rounded-lg">
-                            <p className="text-xs text-[#4A8898] leading-relaxed">💡 Utilisez les boutons pour copier les contacts et créez un groupe pour organiser le trajet !</p>
-                          </div>
-                        </div>
-                      )}
-                      <div className="mt-6 pt-4 border-t border-[#1A3A4A]">
-                        <button onClick={(e) => { e.stopPropagation(); if (window.confirm('Êtes-vous sûr de vouloir supprimer ce trajet ? ' + (driver.passagers.length > 0 ? 'Les ' + driver.passagers.length + ' passager(s) seront libéré(s).' : ''))) { removeDriver(driver.id); } }} className="w-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 hover:border-red-500 text-red-400 hover:text-red-300 px-4 py-3 rounded transition-all text-sm font-medium">🗑️ Supprimer ce trajet</button>
-                      </div>
-                      {hasPlaces && availablePassengers.length > 0 && (
-                        <div className="mt-4 pt-4 border-t border-[#1A3A4A]">
-                          <div className="text-[10px] tracking-[2px] text-[#4A8898] font-medium mb-3 uppercase">Rejoindre ce trajet</div>
-                          {selectedPassengerForJoin === driver.id ? (
-                            <div className="space-y-3">
-                              <p className="text-sm text-[#E0F4F8] mb-3">Sélectionnez le passager :</p>
-                              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                                {availablePassengers.map((passenger) => (
-                                  <button key={passenger.id} onClick={() => { joinDriver(driver.id, passenger.id); setSelectedPassengerForJoin(null); }} className="bg-[#071824] hover:bg-[#FF4D8F]/20 border border-[#1A3A4A] hover:border-[#FF4D8F] px-4 py-3 rounded text-sm text-[#E0F4F8] transition-all text-left">
-                                    <div className="font-medium">{passenger.prenom} {passenger.nom}</div>
-                                  </button>
-                                ))}
+                            <div className="flex flex-wrap items-center justify-between gap-3">
+                              <div>
+                                <div className="text-sm text-[#E0F4F8] font-medium">
+                                  {driver.prenom} {driver.nom} <span className="text-xs text-[#00C8D8]">(Conducteur)</span>
+                                </div>
+                                <div className="text-xs text-[#4A8898] mt-1 flex flex-wrap gap-3">
+                                  {driver.instagram && (
+                                    <a
+                                      href={formatInstagramUrl(driver.instagram)}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      onClick={(e) => e.stopPropagation()}
+                                      className="hover:text-[#00C8D8] transition-colors"
+                                    >
+                                      📷 {driver.instagram}
+                                    </a>
+                                  )}
+                                  {driver.telephone && <span>📱 {driver.telephone}</span>}
+                                </div>
                               </div>
-                              <button onClick={() => setSelectedPassengerForJoin(null)} className="text-xs text-[#4A8898] hover:text-[#E0F4F8] transition-colors">Annuler</button>
                             </div>
-                          ) : (
-                            <button onClick={() => setSelectedPassengerForJoin(driver.id)} className="bg-[#FF4D8F] hover:bg-[#FF4D8F]/90 text-[#071824] font-semibold px-6 py-3 rounded transition-colors text-sm tracking-[2px] uppercase">Je veux rejoindre ce trajet</button>
-                          )}
+                          </div>
+
+                          <div className="mt-3 p-3 bg-[#F6CC45]/10 border border-[#F6CC45]/30 rounded-lg">
+                            <p className="text-xs text-[#E0F4F8] leading-relaxed">
+                              💡 <strong className="text-[#F6CC45]">Astuce :</strong> Utilisez le bouton "Instagram" ou "Téléphone" pour copier les contacts, puis créez un groupe avec tous les membres pour organiser le trajet !
+                            </p>
+                          </div>
                         </div>
                       )}
-                      {hasPlaces && availablePassengers.length === 0 && (
-                        <div className="mt-4 pt-4 border-t border-[#1A3A4A]">
-                          <p className="text-xs text-[#4A8898] italic">Aucun passager disponible pour rejoindre ce trajet. Inscrivez-vous d'abord comme passager.</p>
+
+                      {/* Bouton supprimer le trajet */}
+                      <div className="mt-6 pt-4 border-t border-[#1A3A4A]">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (window.confirm(`Êtes-vous sûr de vouloir supprimer ce trajet ? ${driver.passagers.length > 0 ? `Les ${driver.passagers.length} passager(s) seront libéré(s).` : ''}`)) {
+                              removeDriver(driver.id);
+                            }
+                          }}
+                          className="w-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 hover:border-red-500 text-red-400 hover:text-red-300 px-4 py-3 rounded transition-all text-sm font-medium"
+                        >
+                          🗑️ Supprimer ce trajet
+                        </button>
+                      </div>
+
+                  {/* Bouton pour rejoindre le trajet */}
+                  {hasPlaces && availablePassengers.length > 0 && (
+                    <div className="mt-4 pt-4 border-t border-[#1A3A4A]">
+                      <div className="text-[10px] tracking-[2px] text-[#4A8898] font-medium mb-3 uppercase">
+                        Rejoindre ce trajet
+                      </div>
+
+                      {selectedPassengerForJoin === driver.id ? (
+                        <div className="space-y-3">
+                          <p className="text-sm text-[#E0F4F8] mb-3">Sélectionnez le passager :</p>
+                          <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                            {availablePassengers.map((passenger) => (
+                              <button
+                                key={passenger.id}
+                                onClick={() => {
+                                  joinDriver(driver.id, passenger.id);
+                                  setSelectedPassengerForJoin(null);
+                                }}
+                                className="bg-[#071824] hover:bg-[#FF4D8F]/20 border border-[#1A3A4A] hover:border-[#FF4D8F] px-4 py-3 rounded text-sm text-[#E0F4F8] transition-all text-left"
+                              >
+                                <div className="font-medium">{passenger.prenom} {passenger.nom}</div>
+                              </button>
+                            ))}
+                          </div>
+                          <button
+                            onClick={() => setSelectedPassengerForJoin(null)}
+                            className="text-xs text-[#4A8898] hover:text-[#E0F4F8] transition-colors"
+                          >
+                            Annuler
+                          </button>
                         </div>
+                      ) : (
+                        <button
+                          onClick={() => setSelectedPassengerForJoin(driver.id)}
+                          className="bg-[#FF4D8F] hover:bg-[#FF4D8F]/90 text-[#071824] font-semibold px-6 py-3 rounded transition-colors text-sm tracking-[2px] uppercase"
+                        >
+                          Je veux rejoindre ce trajet
+                        </button>
                       )}
                     </div>
                   )}
+
+                  {hasPlaces && availablePassengers.length === 0 && (
+                    <div className="mt-4 pt-4 border-t border-[#1A3A4A]">
+                      <p className="text-xs text-[#4A8898] italic">
+                        Aucun passager disponible pour rejoindre ce trajet. Inscrivez-vous d'abord comme passager.
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Liste des passagers en attente */}
       {passengers.filter(p => !p.driverId).length > 0 && (
@@ -1345,7 +1440,7 @@ function CovoituragePage() {
               <div key={passenger.id} className="bg-[#091F2E] border border-[#1A3A4A] p-5 rounded-lg relative">
                 <button
                   onClick={() => {
-                    if (window.confirm('Supprimer ' + passenger.prenom + ' ' + passenger.nom + ' de la liste des passagers ?')) {
+                    if (window.confirm(`Supprimer ${passenger.prenom} ${passenger.nom} de la liste des passagers ?`)) {
                       deletePassenger(passenger.id);
                     }
                   }}

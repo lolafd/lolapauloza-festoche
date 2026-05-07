@@ -631,7 +631,7 @@ function CovoituragePage() {
   const [drivers, setDrivers] = useState<any[]>([]);
   const [passengers, setPassengers] = useState<any[]>([]);
   const [selectedPassengerForJoin, setSelectedPassengerForJoin] = useState<number | null>(null);
-  const [copiedId, setCopiedId] = useState<number | null>(null);
+  const [copiedId, setCopiedId] = useState<{id: number, type: string} | null>(null);
   const [expandedDrivers, setExpandedDrivers] = useState<Set<number>>(new Set());
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -758,20 +758,20 @@ function CovoituragePage() {
 
   const copyCarContacts = (driver: any, type: 'all' | 'instagram' | 'telephone') => {
   const allMembers = [driver, ...driver.passagers];
-  let contactText = `🚗 Voiture ${driver.prenom} ${driver.nom}\n${driver.lieuDepart} → ${driver.lieuArrivee}\n\n`;
+  let contactText = '';
 
   if (type === 'instagram') {
-  contactText = allMembers.map((m: any) => m.instagram || '').filter(Boolean).join(' / ');
-} else if (type === 'telephone') {
-  contactText = allMembers.map((m: any) => m.telephone || '').filter(Boolean).join(' / ');
-} else {
-  contactText = allMembers.map((m: any) =>
-    `${m.instagram || ''} ${m.telephone || ''}`
-  ).join('\n');
-}
+    contactText = allMembers.map((m: any) => m.instagram || '').filter(Boolean).join(' / ');
+  } else if (type === 'telephone') {
+    contactText = allMembers.map((m: any) => m.telephone || '').filter(Boolean).join(' / ');
+  } else {
+    contactText = allMembers.map((m: any) =>
+      `${m.instagram || ''} ${m.telephone || ''}`
+    ).join('\n');
+  }
 
   navigator.clipboard.writeText(contactText).then(() => {
-    setCopiedId(driver.id);
+    setCopiedId({ id: driver.id, type });
     setTimeout(() => setCopiedId(null), 2000);
   });
 };
@@ -1257,32 +1257,26 @@ function CovoituragePage() {
 
                   {/* Détails et passagers - affichés seulement si expanded */}
                   {isExpanded && (
-                    <div className="px-6 pb-6">
-                      {driver.passagers.length > 0 && (
-                        <div className="mt-4 pt-4 border-t border-[#1A3A4A]">
-                          <div className="flex items-center justify-between mb-3">
-                            <div className="text-[10px] tracking-[2px] text-[#4A8898] font-medium uppercase">Passagers confirmés</div>
-                           <div className="flex gap-2 flex-wrap">
-                            <button
-                              onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'instagram'); }}
-                              className="text-xs bg-[#FF4D8F]/20 hover:bg-[#FF4D8F]/30 text-[#FF4D8F] px-3 py-1.5 rounded transition-colors"
-                            >
-                              📷 Instagrams
-                            </button>
-                            <button
-                              onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'telephone'); }}
-                              className="text-xs bg-[#00C8D8]/20 hover:bg-[#00C8D8]/30 text-[#00C8D8] px-3 py-1.5 rounded transition-colors"
-                            >
-                              📱 Téléphones
-                            </button>
-                            <button
-                              onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'all'); }}
-                              className="text-xs bg-[#F6CC45]/20 hover:bg-[#F6CC45]/30 text-[#F6CC45] px-3 py-1.5 rounded transition-colors"
-                            >
-                              {copiedId === driver.id ? '✓ Copié !' : '📋 Tout'}
-                            </button>
-                          </div>
-                          </div>
+                 <div className="flex gap-2 flex-wrap">
+                    <button
+                      onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'instagram'); }}
+                      className="text-xs bg-[#00C8D8]/20 hover:bg-[#00C8D8]/30 text-[#00C8D8] px-3 py-1.5 rounded transition-colors"
+                    >
+                      {copiedId?.id === driver.id && copiedId?.type === 'instagram' ? '✓ Copié !' : '📷 Instagrams'}
+                    </button>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'telephone'); }}
+                      className="text-xs bg-[#00C8D8]/20 hover:bg-[#00C8D8]/30 text-[#00C8D8] px-3 py-1.5 rounded transition-colors"
+                    >
+                      {copiedId?.id === driver.id && copiedId?.type === 'telephone' ? '✓ Copié !' : '📱 Téléphones'}
+                    </button>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'all'); }}
+                      className="text-xs bg-[#00C8D8]/20 hover:bg-[#00C8D8]/30 text-[#00C8D8] px-3 py-1.5 rounded transition-colors"
+                    >
+                      {copiedId?.id === driver.id && copiedId?.type === 'all' ? '✓ Copié !' : '📋 Tout'}
+                    </button>
+                  </div>
 
                           <div className="space-y-2">
                             {driver.passagers.map((p: any) => (
@@ -1347,11 +1341,11 @@ function CovoituragePage() {
                             </div>
                           </div>
 
-                          <div className="mt-3 p-3 bg-[#F6CC45]/10 border border-[#F6CC45]/30 rounded-lg">
-                            <p className="text-xs text-[#E0F4F8] leading-relaxed">
-                              💡 <strong className="text-[#F6CC45]">Astuce :</strong> Utilisez le bouton "Instagram" ou "Téléphone" pour copier les contacts, puis créez un groupe avec tous les membres pour organiser le trajet !
-                            </p>
-                          </div>
+                          <div className="mt-3 p-3 bg-[#1A3A4A]/30 border border-[#1A3A4A] rounded-lg">
+                          <p className="text-xs text-[#4A8898] leading-relaxed">
+                            💡 Utilisez les boutons pour copier les contacts et créez un groupe pour organiser le trajet !
+                          </p>
+                        </div>
                         </div>
                       )}
 

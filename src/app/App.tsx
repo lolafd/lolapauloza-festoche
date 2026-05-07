@@ -766,7 +766,7 @@ function CovoituragePage() {
     contactText = allMembers.map((m: any) => m.telephone || '').filter(Boolean).join(' / ');
   } else {
     contactText = allMembers.map((m: any) =>
-      `${m.instagram || ''} ${m.telephone || ''}`
+      (m.instagram || '') + ' ' + (m.telephone || '')
     ).join('\n');
   }
 

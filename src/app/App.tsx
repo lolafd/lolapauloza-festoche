@@ -1263,23 +1263,11 @@ function CovoituragePage() {
                           <div className="flex items-center justify-between mb-3">
                             <div className="text-[10px] tracking-[2px] text-[#4A8898] font-medium uppercase">Passagers confirmés</div>
                            <div className="flex gap-2 flex-wrap">
-                            <button
-                              onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'instagram'); }}
-                              className="text-xs bg-[#FF4D8F]/20 hover:bg-[#FF4D8F]/30 text-[#FF4D8F] px-3 py-1.5 rounded transition-colors"
-                            >
-                              📷 Instagrams
+                            <button onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'instagram'); }} className="text-xs bg-[#00C8D8]/20 hover:bg-[#00C8D8]/30 text-[#00C8D8] px-3 py-1.5 rounded transition-colors">
+                              {copiedId?.id === driver.id && copiedId?.type === 'instagram' ? '✓ Copié !' : '📷 Instagram'}
                             </button>
-                            <button
-                              onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'telephone'); }}
-                              className="text-xs bg-[#00C8D8]/20 hover:bg-[#00C8D8]/30 text-[#00C8D8] px-3 py-1.5 rounded transition-colors"
-                            >
-                              📱 Téléphones
-                            </button>
-                            <button
-                              onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'all'); }}
-                              className="text-xs bg-[#F6CC45]/20 hover:bg-[#F6CC45]/30 text-[#F6CC45] px-3 py-1.5 rounded transition-colors"
-                            >
-                              {copiedId === driver.id ? '✓ Copié !' : '📋 Tout'}
+                            <button onClick={(e) => { e.stopPropagation(); copyCarContacts(driver, 'telephone'); }} className="text-xs bg-[#00C8D8]/20 hover:bg-[#00C8D8]/30 text-[#00C8D8] px-3 py-1.5 rounded transition-colors">
+                              {copiedId?.id === driver.id && copiedId?.type === 'telephone' ? '✓ Copié !' : '📱 Téléphones'}
                             </button>
                           </div>
                           </div>
@@ -1347,11 +1335,11 @@ function CovoituragePage() {
                             </div>
                           </div>
 
-                          <div className="mt-3 p-3 bg-[#F6CC45]/10 border border-[#F6CC45]/30 rounded-lg">
-                            <p className="text-xs text-[#E0F4F8] leading-relaxed">
-                              💡 <strong className="text-[#F6CC45]">Astuce :</strong> Utilisez le bouton "Instagram" ou "Téléphone" pour copier les contacts, puis créez un groupe avec tous les membres pour organiser le trajet !
-                            </p>
-                          </div>
+                          <div className="mt-3 p-3 bg-[#1A3A4A]/30 border border-[#1A3A4A] rounded-lg">
+                          <p className="text-xs text-[#4A8898] leading-relaxed">
+                            💡 Utilisez les boutons pour copier les contacts et créez un groupe pour organiser le trajet !
+                          </p>
+                        </div>
                         </div>
                       )}
 

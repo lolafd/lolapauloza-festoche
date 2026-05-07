@@ -1345,7 +1345,7 @@ function CovoituragePage() {
               <div key={passenger.id} className="bg-[#091F2E] border border-[#1A3A4A] p-5 rounded-lg relative">
                 <button
                   onClick={() => {
-                    if (window.confirm(`Supprimer ${passenger.prenom} ${passenger.nom} de la liste des passagers ?`)) {
+                    if (window.confirm('Supprimer ' + passenger.prenom + ' ' + passenger.nom + ' de la liste des passagers ?')) {
                       deletePassenger(passenger.id);
                     }
                   }}

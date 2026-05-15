@@ -855,9 +855,10 @@ function CovoituragePage() {
           Organise tes trajets, partage ta voiture ou trouve une place ! 
           <br>Choose your fighter : passager ou conducteur, et renseigne toutes les infos demandées.</br>
            <br>Passager : enregistres toi et incruste toi dans un trajet existant. Pas de panique, si aucun trajet proposé ne te convient pour le moment, tu pourras sélectionner une voiture plus tard</br>
-            <br>Conducteur : rentre ton trajet et le nombre de places dispo. Une fois la voiture complète, copie les instas ou les téléphones de tes passagers pour créer un groupe et t'organiser pour récupérer tout le monde.
+            <br>Conducteur : rentre ton trajet et le nombre de places dispo. Une fois la voiture complète, copie les instas ou les téléphones de tes passagers pour créer un groupe et t'organiser pour récupérer tout le monde.</br>
         </p>
 
+          
         {!userType && (
         <div className="mb-12">
           <p className="text-[10px] tracking-[5px] text-[#007A8A] font-medium uppercase mb-6">

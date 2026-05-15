@@ -854,11 +854,12 @@ function CovoituragePage() {
         <p className="text-sm text-[#4A8898] leading-[1.7] mt-2 mb-10 italic">
             Organise tes trajets, partage ta caisse ou trouve une place !
             <br />
+            <br />
             Choose your fighter, passager ou conducteur, et renseigne tes infos.
             <br />
-            <span className="text-[#E0F4F8] font-semibold not-italic">Passager :</span> inscris-toi et greffe toi à un trajet existant. Pas de panique, si aucun trajet ne te convient pour le moment, tu pourras en choisir un plus tard.
+            <span className="font-semibold not-italic">Passager :</span> inscris-toi et greffe toi à un trajet existant. Pas de panique, si aucun trajet ne te convient pour le moment, tu pourras en choisir un plus tard.
             <br />
-            <span className="text-[#E0F4F8] font-semibold not-italic">Conducteur :</span> rentre ton trajet et le nombre de places dispo. Une fois la voiture complète, copie les Instas ou les téléphones de tes passagers pour créer un groupe et t'organiser pour récupérer tout le monde.
+            <span className=" font-semibold not-italic">Conducteur :</span> rentre ton trajet et le nombre de places dispo. Une fois la voiture complète, copie les Instas ou les téléphones de tes passagers pour créer un groupe et t'organiser pour récupérer tout le monde.
           </p>
 
           

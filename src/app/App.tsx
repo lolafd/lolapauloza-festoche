@@ -208,7 +208,7 @@ function HomePage() {
         {/* Hero */}
         <div className="text-center mb-16">
           <h1 className="font-serif text-[clamp(52px,8vw,96px)] font-bold leading-[0.95] mb-2 text-[#E0F4F8]">
-            Waves<br />
+            Paulola<br />
             <em className="text-[#00C8D8] italic">Festival</em>
           </h1>
           <p className="font-serif text-xl italic text-[#4A8898] mb-6">

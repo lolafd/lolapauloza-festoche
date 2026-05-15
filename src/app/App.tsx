@@ -1338,11 +1338,6 @@ function CovoituragePage() {
                             </div>
                           </div>
 
-                          <div className="mt-3 p-3 bg-[#1A3A4A]/30 border border-[#1A3A4A] rounded-lg">
-                          <p className="text-xs text-[#4A8898] leading-relaxed">
-                            💡 Utilisez les boutons pour copier les contacts et créez un groupe pour organiser le trajet !
-                          </p>
-                        </div>
                         </div>
                       )}
 

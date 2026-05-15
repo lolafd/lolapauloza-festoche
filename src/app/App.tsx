@@ -631,7 +631,7 @@ function CovoituragePage() {
   const [drivers, setDrivers] = useState<any[]>([]);
   const [passengers, setPassengers] = useState<any[]>([]);
   const [selectedPassengerForJoin, setSelectedPassengerForJoin] = useState<number | null>(null);
-  const [copiedId, setCopiedId] = useState<number | null>(null);
+  const [copiedId, setCopiedId] = useState<{ id: number; type: string } | null>(null);
   const [expandedDrivers, setExpandedDrivers] = useState<Set<number>>(new Set());
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -771,7 +771,7 @@ function CovoituragePage() {
 }
 
   navigator.clipboard.writeText(contactText).then(() => {
-    setCopiedId(driver.id);
+    setCopiedId({ id: driver.id, type });
     setTimeout(() => setCopiedId(null), 2000);
   });
 };

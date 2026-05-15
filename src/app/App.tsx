@@ -107,7 +107,7 @@ export default function App() {
 
         {/* Navigation tabs - Desktop */}
         <nav className="hidden lg:flex gap-0 px-6 md:px-12 pt-6 border-b border-[#1A3A4A] relative z-10">
-          {['home', 'surplace', 'camping', 'covoiturage', 'lineup'].map((tab) => (
+          {['home', 'theme', 'surplace', 'camping', 'covoiturage', 'lineup'].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -117,7 +117,7 @@ export default function App() {
                   : 'text-[#4A8898] border-transparent hover:text-[#E0F4F8]'
               }`}
             >
-{tab === 'home' ? 'Infos pratiques' : tab === 'surplace' ? 'Bouffe & boissons' : tab === 'camping' ? 'Plan & camping' : tab === 'covoiturage' ? 'Covoiturage' : 'Lineup'}
+{tab === 'home' ? 'Infos pratiques' : tab === 'theme' ? 'Thème' : tab === 'surplace' ? 'Bouffe & boissons' : tab === 'camping' ? 'Plan & camping' : tab === 'covoiturage' ? 'Covoiturage' : 'Lineup'}
             </button>
           ))}
         </nav>
@@ -125,7 +125,7 @@ export default function App() {
         {/* Navigation menu - Mobile/Tablet */}
         {mobileMenuOpen && (
           <nav className="lg:hidden px-6 pt-4 pb-6 border-b border-[#1A3A4A] bg-[#071824]">
-            {['home', 'surplace', 'camping', 'covoiturage', 'lineup'].map((tab) => (
+            {['home', 'theme', 'surplace', 'camping', 'covoiturage', 'lineup'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => {
@@ -138,7 +138,7 @@ export default function App() {
                     : 'text-[#4A8898] hover:text-[#E0F4F8] hover:bg-[#1A3A4A]/50'
                 }`}
               >
-{tab === 'home' ? 'Infos pratiques' : tab === 'surplace' ? 'Bouffe & boissons' : tab === 'camping' ? 'Plan & camping' : tab === 'covoiturage' ? 'Covoiturage' : 'Lineup'}
+{tab === 'home' ? 'Infos pratiques' : tab === 'theme' ? 'Thème' : tab === 'surplace' ? 'Bouffe & boissons' : tab === 'camping' ? 'Plan & camping' : tab === 'covoiturage' ? 'Covoiturage' : 'Lineup'}
               </button>
             ))}
           </nav>
@@ -148,6 +148,7 @@ export default function App() {
       {/* Pages */}
       <main className="relative z-5">
         {activeTab === 'home' && <HomePage />}
+        {activeTab === 'theme' && <ThemePage />}
         {activeTab === 'surplace' && <SurPlacePage />}
         {activeTab === 'camping' && <CampingPage />}
         {activeTab === 'covoiturage' && <CovoituragePage />}
@@ -173,6 +174,35 @@ export default function App() {
           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function ThemePage() {
+  return (
+    <div className="animate-fade-up px-6 md:px-12 py-16 pb-20 max-w-3xl mx-auto">
+      <h2 className="font-serif text-[clamp(32px,5vw,56px)] font-bold text-[#E0F4F8] leading-tight mb-10">
+        Le <em className="text-[#00C8D8] italic">thème</em>
+      </h2>
+
+      <div className="space-y-8 text-[15px] leading-[1.8] text-[#C0DDE8]">
+        <p>
+          Pour cette première édition du Paulola Festival, embarque avec nous et viens naviguer entre les vagues et les{' '}
+          <span className="italic">(marées)</span> basses
+        </p>
+
+        <p>
+          Au programme : embruns, vent qui coiffe mal, une scène aussi déchaînée qu'une nuit de tempête, un bar bière-cidre
+          pour réchauffer les bonnets rouges, et un stand paillettes pour draguer les crustacés.
+        </p>
+
+        <div className="border-l-[3px] border-[#FF4D8F] pl-6 py-2">
+          <p className="text-[#E0F4F8]">
+            <strong className="text-[#FF4D8F] font-medium">Le dress code (ou pas) :</strong>{' '}
+            On ne te demande pas de venir en costume de pieuvre. Mais si l'envie te prend, on ne dira rien
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

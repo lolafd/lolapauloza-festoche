@@ -162,7 +162,7 @@ export default function App() {
             Paulola Festoche
           </div>
           <div className="flex flex-col gap-2 text-[11px] tracking-[2px] text-[#4A8898]">
-            <div>Plufur · Bretagne · 17-19 Juillet 2026 · Accès privé</div>
+            <div>Plufur · Bretagne · 17-19 Juillet 2026</div>
             <div className="flex flex-wrap gap-6">
               <div>
                 <span className="text-[#00C8D8]">Paulo :</span> 07.78.32.82.11

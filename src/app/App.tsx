@@ -896,7 +896,7 @@ function CovoituragePage() {
         <div className="mb-12">
           <h3 className="text-[10px] tracking-[4px] text-[#00C8D8] font-semibold uppercase mb-6">
             ✦ Je suis...
-          </p>
+          </h3>
           <div className="grid md:grid-cols-2 gap-4 max-w-2xl">
             <button
               onClick={() => setUserType('conducteur')}

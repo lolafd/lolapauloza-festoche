@@ -180,7 +180,7 @@ export default function App() {
 
 function ThemePage() {
   return (
-    <div className="animate-fade-up px-6 md:px-12 py-16 pb-20 max-w-3xl mx-auto">
+    <div className="animate-fade-up px-6 md:px-12 py-16 pb-20">
       <h2 className="font-serif text-[clamp(32px,5vw,56px)] font-bold text-[#E0F4F8] leading-tight mb-10">
         Le <em className="text-[#00C8D8] italic">thème</em>
       </h2>
@@ -196,8 +196,8 @@ function ThemePage() {
           pour réchauffer les bonnets rouges, et un stand paillettes pour draguer les crustacés.
         </p>
 
-        <div className="border-l-[3px] border-[#FF4D8F] pl-6 py-2">
-          <p className="text-[#E0F4F8]">
+        <div className="bg-[#FF4D8F1F] border-l-[3px] border-[#FF4D8F] p-6 rounded-r">
+          <p className="text-[13px] leading-[1.7] opacity-80">
             <strong className="text-[#FF4D8F] font-medium">Le dress code (ou pas) :</strong>{' '}
             On ne te demande pas de venir en costume de pieuvre. Mais si l'envie te prend, on ne dira rien
           </p>

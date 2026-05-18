@@ -294,7 +294,7 @@ function HomePage() {
 
         {/* Info grid - Plus grande et centrée */}
         <div className="mb-8">
-            <h3 className="text-[10px] tracking-[4px] text-[#00C8D8] font-semibold uppercase mb-6">
+            <h3 className="text-[10px] text-center tracking-[4px] text-[#00C8D8] font-semibold uppercase mb-6">
               ✦ À retenir
             </h3>
         </div>

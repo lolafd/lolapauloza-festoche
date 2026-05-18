@@ -297,6 +297,7 @@ function HomePage() {
             <h3 className="text-[10px] tracking-[4px] text-[#00C8D8] font-semibold uppercase mb-6">
               ✦ À retenir
             </h3>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
           {[
             { label: 'Dates', value: '17–19\nJuillet 2026', color: '#007A8A', Icon: Calendar, link: null },

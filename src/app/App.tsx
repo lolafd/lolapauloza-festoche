@@ -195,8 +195,8 @@ function ThemePage() {
               
         <div className="bg-[#FF4D8F1F] border-l-[3px] border-[#FF4D8F] p-6 rounded-r">
           <p className="text-[13px] leading-[1.7] opacity-80">
-            <strong className="text-[#FF4D8F] font-medium">Le dress code (ou pas) :</strong>{' '}
-            On ne te demande pas de venir en costume de pieuvre. Mais si l'envie te prend, on ne dira rien
+            <strong className="text-[#FF4D8F] font-medium">Le dress code :</strong>{' '}
+            Pas de dress code ! Mais tu as envie de venir en costume de pieuvre, on ne dira rien
           </p>
         </div>
       </div>

@@ -298,13 +298,13 @@ function HomePage() {
 
     {/* Lola - gauche */}
     <div className="flex flex-col items-end gap-2 max-w-[140px] text-right">
-      <span className="text-[9px] tracking-[3px] uppercase text-[#00C8D8] border border-[#00C8D8]/40 px-3 py-1 rounded-full">
+      <span className="text-[10px] tracking-[3px] uppercase text-[#00C8D8] border border-[#00C8D8]/40 px-3 py-1 rounded-full">
         Lola
       </span>
       <p className="font-serif text-lg italic text-[#E0F4F8] leading-snug">
         25 ans
       </p>
-      <p className="text-[11px] text-[#4A8898] leading-relaxed">
+      <p className="text-[13px] text-[#4A8898] leading-relaxed">
         La direction artistique et les paillettes.
       </p>
     </div>
@@ -320,13 +320,13 @@ function HomePage() {
 
     {/* Paul - droite */}
     <div className="flex flex-col items-start gap-2 max-w-[140px] text-left">
-      <span className="text-[9px] tracking-[3px] uppercase text-[#FF4D8F] border border-[#FF4D8F]/40 px-3 py-1 rounded-full">
+      <span className="text-[10px] tracking-[3px] uppercase text-[#FF4D8F] border border-[#FF4D8F]/40 px-3 py-1 rounded-full">
         Paul
       </span>
       <p className="font-serif text-lg italic text-[#E0F4F8] leading-snug">
         27 ans
       </p>
-      <p className="text-[11px] text-[#4A8898] leading-relaxed">
+      <p className="text-[13px] text-[#4A8898] leading-relaxed">
         Le son et les bières au frais.
       </p>
     </div>

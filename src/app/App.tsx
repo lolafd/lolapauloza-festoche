@@ -185,9 +185,8 @@ function ThemePage() {
         Le <em className="text-[#00C8D8] italic">thème</em>
       </h2>
       <p className="text-sm text-[#4A8898] leading-[1.7] mb-12">
-            Embarque avec nous pour naviguer entre vagues et (marées)</span> basses
-        </p>
-
+        Embarque avec nous pour naviguer entre vagues et (marées) basses
+      </p>
       <div className="text-[15px] leading-[1.8] opacity-75 max-w-[560px] mx-auto mb-8">
         <p>
           Au programme : embruns, vent qui coiffe mal, une scène aussi déchaînée qu'une nuit de tempête, un bar bière-cidre

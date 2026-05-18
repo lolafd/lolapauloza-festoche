@@ -296,7 +296,7 @@ function HomePage() {
 <div className="mb-10">
   <p className="text-[10px] tracking-[4px] text-[#00C8D8] font-semibold uppercase mb-6 flex items-center justify-center gap-3">
     <span className="block h-px w-10 bg-[#00C8D8] opacity-40" />
-    Les organisateurs
+     ✦ Les stars
     <span className="block h-px w-10 bg-[#00C8D8] opacity-40" />
   </p>
 
@@ -308,10 +308,10 @@ function HomePage() {
         Lola
       </span>
       <p className="font-serif text-lg italic text-[#E0F4F8] leading-snug">
-        25 ans,<br />cerveau droit
+        25 ans
       </p>
       <p className="text-[11px] text-[#4A8898] leading-relaxed">
-        La vision, le chaos, les détails qui font la magie.
+        La direction artistique et les paillettes.
       </p>
     </div>
 
@@ -330,10 +330,10 @@ function HomePage() {
         Paul
       </span>
       <p className="font-serif text-lg italic text-[#E0F4F8] leading-snug">
-        27 ans,<br />cerveau gauche
+        27 ans
       </p>
       <p className="text-[11px] text-[#4A8898] leading-relaxed">
-        La logistique, le son, les bières au frais.
+        Le son et les bières au frais.
       </p>
     </div>
 

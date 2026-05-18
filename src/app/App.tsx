@@ -285,8 +285,6 @@ function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
         {/* Section Organisateurs */}
         <div className="mb-8">

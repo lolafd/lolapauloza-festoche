@@ -184,9 +184,9 @@ function ThemePage() {
       <h2 className="font-serif text-[clamp(32px,5vw,56px)] font-bold text-[#E0F4F8] leading-tight mb-10">
         Le <em className="text-[#00C8D8] italic">thème</em>
       </h2>
-      <p className="text-sm text-[#4A8898] leading-[1.7] mt-2 mb-10 ">
+      <p className="text-sm text-[#4A8898] leading-[1.7] mb-12">
             Embarque avec nous pour naviguer entre vagues et (marées)</span> basses
-       </p>
+        </p>
 
       <div className="text-[15px] leading-[1.8] opacity-75 max-w-[560px] mx-auto mb-8">
         <p>
@@ -294,7 +294,7 @@ function HomePage() {
         </div>
 
         {/* Info grid - Plus grande et centrée */}
-       <h3 className="text-[10px] tracking-[4px] text-[#00C8D8] font-semibold uppercase mb-6">
+          <h3 className="text-[10px] tracking-[4px] text-[#00C8D8] font-semibold uppercase mb-6">
           ✦ À retenir
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
@@ -879,7 +879,7 @@ function CovoituragePage() {
         <h2 className="font-serif text-5xl font-bold text-[#E0F4F8] mb-2 leading-[1.1]">
           Covoitu<em className="text-[#00C8D8] italic">rage</em>
         </h2>
-        <p className="text-sm text-[#4A8898] leading-[1.7] mt-2 mb-10 italic">
+      <p className="text-sm text-[#4A8898] leading-[1.7] mb-12">
             Choose your fighter, passager ou conducteur, et renseigne tes infos.
            <br />
             <br />

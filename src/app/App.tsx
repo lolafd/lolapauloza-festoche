@@ -184,12 +184,11 @@ function ThemePage() {
       <h2 className="font-serif text-[clamp(32px,5vw,56px)] font-bold text-[#E0F4F8] leading-tight mb-10">
         Le <em className="text-[#00C8D8] italic">thème</em>
       </h2>
-      <p className="text-sm text-[#4A8898] leading-[1.7] mt-2 mb-10 italic">
-            Pour cette première édition du Paulola Festoche, embarque avec nous pour naviguer entre les vagues et les{' '}
-          <span className="italic">(marées)</span> basses
+      <p className="text-sm text-[#4A8898] leading-[1.7] mt-2 mb-10 ">
+            Embarque avec nous pour naviguer entre vagues et (marées)</span> basses
        </p>
 
-      <div className="space-y-8 text-[15px] leading-[1.8] text-[#C0DDE8]">
+      <div className="text-[15px] leading-[1.8] opacity-75 max-w-[560px] mx-auto mb-8">
         <p>
           Au programme : embruns, vent qui coiffe mal, une scène aussi déchaînée qu'une nuit de tempête, un bar bière-cidre
           pour réchauffer les bonnets rouges, un stand paillettes pour draguer les crustacés, un espace camping pour récupérer.

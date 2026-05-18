@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Calendar, MapPin, Clock, Radio, Menu, X } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-import nousDeux from '../imports/nous-deux.jpg';
+import nousDeux from '../imports/nous-deux_2.jpg';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');

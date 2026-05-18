@@ -240,7 +240,7 @@ function HomePage() {
             <em className="text-[#00C8D8] italic">Festoche</em>
           </h1>
           <p className="font-serif text-xl italic text-[#4A8898] mb-6">
-            Lola et Paul · Festival d'anniversaire
+            Festival d'anniversaire
           </p>
           <p className="text-[15px] leading-[1.8] opacity-75 max-w-[560px] mx-auto mb-8">
             Trois jours, deux nuits, une scène. Une maison de vacances bretonne transformée en mini-festival pour fêter les 25 ans et les 27 ans comme il se doit.

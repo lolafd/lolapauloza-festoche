@@ -1489,7 +1489,7 @@ function CovoituragePage() {
       {drivers.length === 0 && passengers.filter(p => !p.driverId).length === 0 && !userType && (
         <div className="text-center py-16 opacity-50">
           <p className="text-sm">Aucun trajet ou passager inscrit pour le moment.</p>
-          <p className="text-xs mt-2">Soyez le premier à proposer un covoiturage !</p>
+          <p className="text-xs mt-2">Sois le premier à proposer un covoiturage !</p>
         </div>
       )}
       </div>

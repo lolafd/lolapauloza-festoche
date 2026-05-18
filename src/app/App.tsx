@@ -186,7 +186,7 @@ function ThemePage() {
         <h2 className="font-serif text-5xl font-bold text-[#E0F4F8] mb-3 leading-[1.1]">
           Le <em className="text-[#00C8D8] italic">thème</em>
         </h2>
-        <p className="text-sm text-[#4A8898] leading-[1.7] mb-12">
+          <p className="text-sm text-[#4A8898] leading-[1.7] mt-2 mb-10 italic">
         Embarque avec nous pour naviguer entre vagues et (marées) basses
         </p>
         <p className=" text-sm text-[15px] opacity-75 leading-[1.8] mb-12">
@@ -398,7 +398,7 @@ function SurPlacePage() {
         <h2 className="font-serif text-5xl font-bold text-[#E0F4F8] mb-3 leading-[1.1]">
           Bouffe<em className="text-[#00C8D8] italic"> & boissons</em>
         </h2>
-        <p className="text-sm text-[#4A8898] leading-[1.7] mb-12">
+          <p className="text-sm text-[#4A8898] leading-[1.7] mt-2 mb-10 italic">
           Tout ce qu'il faut savoir pour bien manger et bien boire ce week-end
         </p>
 
@@ -491,8 +491,8 @@ function CampingPage() {
           <h2 className="font-serif text-5xl font-bold text-[#E0F4F8] mb-3 leading-[1.1]">
             Plan du <em className="text-[#00C8D8] italic">site</em>
           </h2>
-          <p className="text-sm text-[#4A8898] leading-[1.7] mb-12">
-            Vue d'ensemble du festival — scènes, maisons, camping et parking
+          <p className="text-sm text-[#4A8898] leading-[1.7] mt-2 mb-10 italic">
+            Vue d'ensemble du festival : scène, maison, camping et parking
           </p>
 
           {/* Plan SVG */}
@@ -922,7 +922,7 @@ function CovoituragePage() {
         <h2 className="font-serif text-5xl font-bold text-[#E0F4F8] mb-3 leading-[1.1]">
           Covoitu<em className="text-[#00C8D8] italic">rage</em>
         </h2>
-        <p className="text-sm text-[#4A8898] leading-[1.7] mb-12">
+          <p className="text-sm text-[#4A8898] leading-[1.7] mt-2 mb-10 italic">
           Choose your fighter, passager ou conducteur, et renseigne tes infos.
         </p>
         <p className=" text-sm text-[15px] opacity-75 leading-[1.8] mb-12">
@@ -1563,7 +1563,7 @@ function LineupPage() {
         <h2 className="font-serif text-5xl font-bold text-[#E0F4F8] mb-2 leading-[1.1]">
           Line<em className="text-[#00C8D8] italic">up</em>
         </h2>
-        <p className="text-sm text-[#4A8898] leading-[1.7] mt-2 mb-12">
+          <p className="text-sm text-[#4A8898] leading-[1.7] mt-2 mb-10 italic">
           Tout doux, tout doux, ça arrive...
         </p>
 

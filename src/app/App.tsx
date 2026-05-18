@@ -292,6 +292,54 @@ function HomePage() {
           </div>
         </div>
 
+        {/* Section Organisateurs */}
+<div className="mb-10">
+  <p className="text-[10px] tracking-[4px] text-[#00C8D8] font-semibold uppercase mb-6 flex items-center justify-center gap-3">
+    <span className="block h-px w-10 bg-[#00C8D8] opacity-40" />
+    Les organisateurs
+    <span className="block h-px w-10 bg-[#00C8D8] opacity-40" />
+  </p>
+
+  <div className="flex items-center justify-center gap-8">
+
+    {/* Lola - gauche */}
+    <div className="flex flex-col items-end gap-2 max-w-[140px] text-right">
+      <span className="text-[9px] tracking-[3px] uppercase text-[#00C8D8] border border-[#00C8D8]/40 px-3 py-1 rounded-full">
+        Lola
+      </span>
+      <p className="font-serif text-lg italic text-[#E0F4F8] leading-snug">
+        25 ans,<br />cerveau droit
+      </p>
+      <p className="text-[11px] text-[#4A8898] leading-relaxed">
+        La vision, le chaos, les détails qui font la magie.
+      </p>
+    </div>
+
+    {/* Photo */}
+    <div className="w-[180px] h-[230px] border border-[#00C8D8]/30 rounded-md overflow-hidden flex-shrink-0">
+      <img
+        src="/nous-deux.jpg"
+        alt="Lola et Paul"
+        className="w-full h-full object-cover object-top"
+      />
+    </div>
+
+    {/* Paul - droite */}
+    <div className="flex flex-col items-start gap-2 max-w-[140px] text-left">
+      <span className="text-[9px] tracking-[3px] uppercase text-[#FF4D8F] border border-[#FF4D8F]/40 px-3 py-1 rounded-full">
+        Paul
+      </span>
+      <p className="font-serif text-lg italic text-[#E0F4F8] leading-snug">
+        27 ans,<br />cerveau gauche
+      </p>
+      <p className="text-[11px] text-[#4A8898] leading-relaxed">
+        La logistique, le son, les bières au frais.
+      </p>
+    </div>
+
+  </div>
+</div>
+
         {/* Info grid - Plus grande et centrée */}
         <div className="mb-8">
             <h3 className="text-[10px] text-center tracking-[4px] text-[#00C8D8] font-semibold uppercase mb-6">

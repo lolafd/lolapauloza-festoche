@@ -288,7 +288,7 @@ function HomePage() {
             </div>
 
         {/* Section Organisateurs */}
-        <div className="mb-8">
+        <div className="mt-10 mb-8">
             <h3 className="text-[10px] text-center tracking-[4px] text-[#00C8D8] font-semibold uppercase mb-6">
               ✦ Les stars
             </h3>

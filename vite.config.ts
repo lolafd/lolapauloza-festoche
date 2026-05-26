@@ -17,7 +17,7 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
-  base: '/waves-festival-paulola/',
+    base: '/lolapauloza-festoche/',
   plugins: [
     figmaAssetResolver(),
     react(),

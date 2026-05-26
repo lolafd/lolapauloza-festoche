@@ -984,11 +984,11 @@ function CovoituragePage() {
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label className="block text-[10px] tracking-[3px] text-[#4A8898] font-medium mb-2 uppercase">
-                  Nom *
+                  Prénom *
                 </label>
                 <input
                   type="text"
-                  name="nom"
+                  name="prenom"
                   required
                   className="w-full bg-[#071824] border border-[#1A3A4A] rounded px-4 py-3 text-sm text-[#E0F4F8] focus:border-[#00C8D8] focus:outline-none transition-colors"
                 />
@@ -996,11 +996,11 @@ function CovoituragePage() {
 
               <div>
                 <label className="block text-[10px] tracking-[3px] text-[#4A8898] font-medium mb-2 uppercase">
-                  Prénom *
+                  Nom *
                 </label>
                 <input
                   type="text"
-                  name="prenom"
+                  name="nom"
                   required
                   className="w-full bg-[#071824] border border-[#1A3A4A] rounded px-4 py-3 text-sm text-[#E0F4F8] focus:border-[#00C8D8] focus:outline-none transition-colors"
                 />
@@ -1165,11 +1165,11 @@ function CovoituragePage() {
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label className="block text-[10px] tracking-[3px] text-[#4A8898] font-medium mb-2 uppercase">
-                  Nom *
+                  Prénom *
                 </label>
                 <input
                   type="text"
-                  name="nom"
+                  name="prenom"
                   required
                   className="w-full bg-[#071824] border border-[#1A3A4A] rounded px-4 py-3 text-sm text-[#E0F4F8] focus:border-[#FF4D8F] focus:outline-none transition-colors"
                 />
@@ -1177,11 +1177,11 @@ function CovoituragePage() {
 
               <div>
                 <label className="block text-[10px] tracking-[3px] text-[#4A8898] font-medium mb-2 uppercase">
-                  Prénom *
+                  Nom *
                 </label>
                 <input
                   type="text"
-                  name="prenom"
+                  name="nom"
                   required
                   className="w-full bg-[#071824] border border-[#1A3A4A] rounded px-4 py-3 text-sm text-[#E0F4F8] focus:border-[#FF4D8F] focus:outline-none transition-colors"
                 />

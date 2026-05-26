@@ -91,7 +91,7 @@ export default function App() {
         {/* Top bar */}
         <div className="flex justify-between items-center px-6 md:px-12 pt-7">
           <div className="font-serif text-[13px] font-bold tracking-[6px] text-[#00C8D8] uppercase">
-            Paulola Festoche
+            Lolapauloza Festoche
           </div>
           <div className="hidden lg:block text-[11px] tracking-[3px] text-[#4A8898] font-normal">
             17 — 19 Juillet 2026 · Plufur, Bretagne
@@ -160,7 +160,7 @@ export default function App() {
       <footer className="relative z-5 px-6 md:px-12 py-10 border-t border-[#1A3A4A]">
         <div className="flex justify-between items-start flex-wrap gap-4">
           <div className="font-serif text-xl font-bold text-[#00C8D8] tracking-[2px]">
-            Paulola Festoche
+            Lolapauloza Festoche
           </div>
           <div className="flex flex-col gap-2 text-[11px] tracking-[2px] text-[#4A8898]">
             <div>Plufur · Bretagne · 17-19 Juillet 2026</div>
@@ -236,14 +236,14 @@ function HomePage() {
         {/* Hero */}
         <div className="text-center mb-16">
           <h1 className="font-serif text-[clamp(52px,8vw,96px)] font-bold leading-[0.95] mb-2 text-[#E0F4F8]">
-            Paulola<br />
+            Lolapauloza<br />
             <em className="text-[#00C8D8] italic">Festoche</em>
           </h1>
           <p className="font-serif text-xl italic text-[#4A8898] mb-6">
             Festival d'anniversaire
           </p>
           <p className="text-[15px] leading-[1.8] opacity-75 max-w-[560px] mx-auto mb-8">
-            Trois jours, deux nuits, une scène. Une maison de vacances bretonne transformée en mini-festival pour fêter les 25 ans et les 27 ans comme il se doit.
+            Une maison de vacances bretonne transformée en mini-festival pour fêter les 25 ans et les 27 ans comme il se doit.
           </p>
 
           {/* Compte à rebours */}
@@ -383,7 +383,7 @@ function HomePage() {
         {/* L'essentiel */}
         <div className="bg-[#F6CC451F] border-l-[3px] border-[#F6CC45] p-6 rounded-r">
           <p className="text-[13px] leading-[1.7] opacity-80">
-            <strong className="text-[#F6CC45] font-medium">L'essentiel :</strong> Personne dans les maisons, tout le monde dehors. Paulola Festoche est un festival privé qui va se dérouler chez papi Michel et chez maman Charlotte Desoblin, donc cette règle est à respecter pour que Paulo ne soit pas déshérité.
+            <strong className="text-[#F6CC45] font-medium">L'essentiel :</strong> Personne dans les maisons, tout le monde dehors. Lolapauloza Festoche est un festival privé qui va se dérouler chez papi Michel et chez maman Charlotte Desoblin, donc cette règle est à respecter pour que Paulo ne soit pas déshérité.
           </p>
         </div>
       </div>
@@ -1327,7 +1327,7 @@ function CovoituragePage() {
                     </div>
 
                     <div className="text-center mt-4 text-xs text-[#4A8898]">
-                      {isExpanded ? '▲ Masquer les détails' : '▼ Voir les détails et les passagers'}
+                      {isExpanded ? '▲ Masquer les détails' : '▼ Voir les détails ou inscris toi dans la voiture'}
                     </div>
                   </button>
 
